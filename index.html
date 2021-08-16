@@ -32,7 +32,7 @@
         <!-- Custom CSS-->
         <link rel="stylesheet" href="assets/css/styles.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
-        
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Colors -->
         <link rel="alternate stylesheet" href="assets/css/colors/blue.css" title="blue">
         <link rel="stylesheet" href="assets/css/colors/defauld.css" title="defauld">
@@ -613,7 +613,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 wow fadeInUp" data-wow-duration="0.8s" data-wow-delay="0.3s">
-                            <form id="contactForm" class="single-form quate-form wow fadeInUp" data-toggle="validator">
+                            <form id="submit-form" action="" class="single-form quate-form wow fadeInUp" data-toggle="validator">
                                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                                 <div class="row">
                                     <div class="col-md-6 col-sm-12">
@@ -719,5 +719,33 @@
 
     
     </div>
+    
+     <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbwlT6LsZvkIoEMlxEpjpB4zediGnEXand2FR0Up/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                    //window.location.href="https://google.com"
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
 </body>
 </html>
